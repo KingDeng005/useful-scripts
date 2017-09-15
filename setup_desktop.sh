@@ -1,4 +1,6 @@
 #!/bin/bash
+#created by Fuheng on 9/16/2017
+shopt -s xpg_echo
 
 # check internet connection
 wget -q --spider http://google.com
@@ -29,24 +31,9 @@ sleep 2
 # create destop files
 echo "creating desktop files..."
 rm -rf ~/Desktop/start_collection.desktop ~/Desktop/stop_collection.desktop
-echo "[Desktop Entry]" > ~/Desktop/start_collection.desktop
-echo "Version=1.1" >> ~/Desktop/start_collection.desktop
-echo "Name=start_collection" >> ~/Desktop/start_collection.desktop
-echo "Comment=only for data collection" >> ~/Desktop/start_collection.desktop
-echo "Exec= bash -c 'python ~/octopus-docker/octopus_docker_launcher.py --tag develop-1172 --auto && sleep 8 && google-chrome http://localhost:8080'" >> ~/Desktop/start_collection.desktop
-echo "Icon=$HOME/.icons/start-button.jpg" >> ~/Desktop/start_collection.desktop
-echo "Terminal=false" >> ~/Desktop/start_collection.desktop
-echo "Type=Application" >> ~/Desktop/start_collection.desktop
-echo "Categories=Utility;Application;" >> ~/Desktop/start_collection.desktop
-echo "[Desktop Entry]" > ~/Desktop/stop_collection.desktop
-echo "Version=1.1" >> ~/Desktop/stop_collection.desktop
-echo "Name=stop_collection" >> ~/Desktop/stop_collection.desktop
-echo "Comment=only for data collection" >> ~/Desktop/stop_collection.desktop
-echo "Exec= bash -c 'python ~/octopus-docker/octopus_docker_launcher.py --tag develop-1172 --clear'" >> ~/Desktop/stop_collection.desktop
-echo "Icon=$HOME/.icons/stop-button.jpg" >> ~/Desktop/stop_collection.desktop
-echo "Terminal=false" >> ~/Desktop/stop_collection.desktop
-echo "Type=Application" >> ~/Desktop/stop_collection.desktop
-echo "Categories=Utility;Application;" >> ~/Desktop/stop_collection.desktop
+echo "[Desktop Entry]\nVersion=1.1\nName=start_collection\nComment=only for data collection\nExec= bash -c 'python ~/octopus-docker/octopus_docker_launcher.py --tag develop-1172 --auto && sleep 8 && google-chrome http://localhost:8080'\nIcon=$HOME/.icons/start-button.jpg\nTerminal=false\nType=Application\nCategories=Utility;Application;" > $HOME/Desktop/start_collection.desktop
+echo "[Desktop Entry]\nVersion=1.1\nName=stop_collection\nComment=only for data collection\nExec= bash -c 'python ~/octopus-docker/octopus_docker_launcher.py --tag develop-1172 --clear'\nIcon=$HOME/.icons/stop-button.jpg\nTerminal=false\nType=Application\nCategories=Utility;Application;" > $HOME/Desktop/stop_collection.desktop
+
 
 # permission fix
 sudo chmod a+x ~/Desktop/start_collection.desktop ~/Desktop/stop_collection.desktop
