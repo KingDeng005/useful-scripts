@@ -31,7 +31,7 @@ sleep 2
 # create destop files
 echo "creating desktop files..."
 rm -rf ~/Desktop/start_collection.desktop ~/Desktop/stop_collection.desktop
-echo "[Desktop Entry]\nVersion=1.1\nName=start_collection\nComment=only for data collection\nExec= bash -c 'python ~/octopus-docker/octopus_docker_launcher.py --tag develop-1241 --auto && sleep 12 && google-chrome http://localhost:8080'\nIcon=$HOME/.icons/start-button.jpg\nTerminal=false\nType=Application\nCategories=Utility;Application;" > $HOME/Desktop/start_collection.desktop
+echo "[Desktop Entry]\nVersion=1.1\nName=start_collection\nComment=only for data collection\nExec= bash -c 'python ~/workspace/useful-scripts/usb_hub_on.py && python ~/octopus-docker/octopus_docker_launcher.py --tag develop-1241 --auto && sleep 12 && google-chrome http://localhost:8080'\nIcon=$HOME/.icons/start-button.jpg\nTerminal=false\nType=Application\nCategories=Utility;Application;" > $HOME/Desktop/start_collection.desktop
 echo "[Desktop Entry]\nVersion=1.1\nName=stop_collection\nComment=only for data collection\nExec= bash -c 'python ~/octopus-docker/octopus_docker_launcher.py --tag develop-1241 --clear'\nIcon=$HOME/.icons/stop-button.jpg\nTerminal=false\nType=Application\nCategories=Utility;Application;" > $HOME/Desktop/stop_collection.desktop
 
 
